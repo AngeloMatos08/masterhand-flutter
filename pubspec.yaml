@@ -8,37 +8,24 @@ environment:
   flutter: '>=3.22.0'
 
 dependencies:
+  drift: ^2.18.0
   flutter:
     sdk: flutter
-
-  # Banco de dados
-  drift: ^2.18.0
-  sqlite3_flutter_libs: ^0.5.0
-  path_provider: ^2.1.4
-  path: ^1.9.0
-
-  # Navegação
   go_router: ^14.0.0
-
-  # Links externos (site oficial dos sistemas)
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  provider: ^6.1.2
+  sqlite3_flutter_libs: ^0.5.0
   url_launcher: ^6.3.0
 
-  # Gerenciamento de estado
-  provider: ^6.1.2
-
 dev_dependencies:
+  build_runner: ^2.4.11
+  drift_dev: ^2.18.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
 
-  # Geração de código do Drift
-  drift_dev: ^2.18.0
-  build_runner: ^2.4.11
-
-  # Qualidade de código
-  flutter_lints: ^4.0.0
-
 flutter:
   uses-material-design: true
-
   assets:
     - assets/database/
