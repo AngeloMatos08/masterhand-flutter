@@ -1,0 +1,35 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Boas práticas gerais
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_final_fields: true
+    prefer_final_locals: true
+    avoid_print: true
+
+    # Organização de imports
+    directives_ordering: true
+    sort_pub_dependencies: true
+
+    # Segurança de tipos (importante para o Drift)
+    always_declare_return_types: true
+    avoid_dynamic_calls: true
+
+    # Performance no Flutter
+    avoid_unnecessary_containers: true
+    sized_box_for_whitespace: true
+    use_full_hex_values_for_flutter_colors: true
+
+analyzer:
+  errors:
+    # Tratar warnings como erros no CI
+    missing_return: error
+    dead_code: warning
+
+  exclude:
+    # Ignorar arquivos gerados pelo Drift
+    - "**/*.g.dart"
+    - "**/*.drift.dart"
+    - "lib/data/local/database/*.drift.dart"
