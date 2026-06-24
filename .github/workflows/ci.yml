@@ -16,7 +16,7 @@ jobs:
         with:
           flutter-version: "3.22.x"
           channel: "stable"
-          cache: false # Desativado temporariamente para limpar o cache anterior
+          cache: false
       - run: flutter pub get
       - run: dart run build_runner build
       - run: flutter analyze --fatal-infos
@@ -29,7 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Garantindo o Java 17 explicitamente antes do Flutter
       - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
@@ -40,14 +39,14 @@ jobs:
         with:
           flutter-version: "3.22.x"
           channel: "stable"
-          cache: false # Desativado temporariamente para não trazer arquivos antigos quebrados
+          cache: false
           
       - run: flutter pub get
       - run: dart run build_runner build
       
-      # Comando adicionado para limpar qualquer resquício do Gradle antigo
-      - name: Clean Gradle
-        run: cd android && ./gradlew clean && cd ..
+      # Substituído pelo comando nativo do Flutter que limpa tudo sem quebrar
+      - name: Clean Project
+        run: flutter clean
         
       - run: flutter build apk --release --no-shrink
       
