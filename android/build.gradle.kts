@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.codehaus.groovy:groovy-xml:4.0.13")
+        classpath("org.codehaus.groovy:groovy-xml:3.0.25")
     }
 }
 
