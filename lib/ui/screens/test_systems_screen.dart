@@ -30,9 +30,7 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
         future: _systemsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
@@ -40,11 +38,7 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
-                    Icons.error_outline,
-                    size: 48,
-                    color: Colors.red,
-                  ),
+                  const Icon(Icons.error_outline, size: 48, color: Colors.red),
                   const SizedBox(height: 16),
                   Text(
                     'Erro ao carregar sistemas',
@@ -73,8 +67,7 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
             itemCount: systems.length,
             padding: const EdgeInsets.all(12),
             itemBuilder: (context, index) {
-              final system = systems[index];
-              return SystemCard(system: system);
+              return SystemCard(system: systems[index]);
             },
           );
         },
@@ -86,17 +79,14 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
 class SystemCard extends StatelessWidget {
   final System system;
 
-  const SystemCard({
-    super.key,
-    required this.system,
-  });
+  const SystemCard({super.key, required this.system});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       child: ListTile(
-        title: Text(system.name),
+        title: Text(system.title),
         subtitle: Text(
           system.description.length > 100
               ? '${system.description.substring(0, 100)}...'
@@ -124,17 +114,17 @@ class SystemCard extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text(system.name),
+              title: Text(system.title),
               content: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (system.coverUrl != null)
+                    if (system.cover != null)
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          system.coverUrl!,
+                        child: Image.memory(
+                          system.cover!,
                           height: 150,
                           width: double.infinity,
                           fit: BoxFit.cover,
