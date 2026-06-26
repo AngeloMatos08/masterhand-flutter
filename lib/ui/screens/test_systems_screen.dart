@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../../data/local/app_database.dart';
 
 class TestSystemsScreen extends StatefulWidget {
-  const TestSystemsScreen({Key? key}) : super(key: key);
+  const TestSystemsScreen({super.key});
 
   @override
   State<TestSystemsScreen> createState() => _TestSystemsScreenState();
@@ -40,7 +40,7 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.error_outline,
                     size: 48,
                     color: Colors.red,
@@ -87,9 +87,9 @@ class SystemCard extends StatelessWidget {
   final System system;
 
   const SystemCard({
-    Key? key,
+    super.key,
     required this.system,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
