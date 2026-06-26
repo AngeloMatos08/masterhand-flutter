@@ -16,6 +16,14 @@ class AppDatabase extends _$AppDatabase {
   @override
   int get schemaVersion => 1;
 
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        onCreate: (m) async {
+          // Não cria tabelas — o banco já vem pronto do asset
+        },
+        onUpgrade: (m, from, to) async {},
+      );
+
   static QueryExecutor _openConnection() {
     return LazyDatabase(() async {
       final dir = await getApplicationDocumentsDirectory();
