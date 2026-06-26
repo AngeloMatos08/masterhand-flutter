@@ -8,12 +8,12 @@ import 'tables.dart';
 
 part 'app_database.g.dart'; // gerado pelo build_runner
 
-@DriftDatabase(tables: [Categories, Systems])
+@DriftDatabase(tables: [Categories, Systems, SystemCategories])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2; // Incrementado para indicar mudança de schema
 
   static QueryExecutor _openConnection() {
     return LazyDatabase(() async {
