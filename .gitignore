@@ -63,3 +63,4 @@ coverage/
 # Banco de dados local (nunca commitar dados reais)
 *.sqlite
 *.db
+!assets/database/db.sqlite
