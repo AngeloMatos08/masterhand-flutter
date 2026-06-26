@@ -67,8 +67,18 @@ class _TestSystemsScreenState extends State<TestSystemsScreen> {
             itemCount: systems.length,
             padding: const EdgeInsets.all(12),
             itemBuilder: (context, index) {
-              return SystemCard(system: systems[index]);
-            },
+          try {
+            return SystemCard(system: systems[index]);
+          } catch (e) {
+            return Card(
+              margin: const EdgeInsets.only(bottom: 12),
+              child: ListTile(
+                title: Text('Erro no sistema ${systems[index].id}'),
+                subtitle: Text(e.toString()),
+              ),
+            );
+          }
+        },
           );
         },
       ),
