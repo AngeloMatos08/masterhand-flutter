@@ -24,6 +24,12 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "Master-Hand-logo-iOS-Default-1024x1024@1x.png"
 
 flutter:
   uses-material-design: true
