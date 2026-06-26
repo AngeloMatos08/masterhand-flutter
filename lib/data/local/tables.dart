@@ -1,6 +1,9 @@
 import 'package:drift/drift.dart';
 
 class Categories extends Table {
+  @override
+  String get tableName => 'category';
+
   TextColumn get id => text()();
   TextColumn get name => text().withLength(min: 1, max: 50)();
 
@@ -9,6 +12,9 @@ class Categories extends Table {
 }
 
 class Systems extends Table {
+  @override
+  String get tableName => 'system';
+
   IntColumn get id => integer().autoIncrement()();
   TextColumn get title => text().withLength(min: 1, max: 100)();
   BlobColumn get cover => blob().nullable()();
