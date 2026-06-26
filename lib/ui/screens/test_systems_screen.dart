@@ -114,8 +114,8 @@ class SystemCard extends StatelessWidget {
               ),
             const SizedBox(width: 8),
             Icon(
-              system.isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: system.isFavorite ? Colors.red : null,
+              system.isFavorite == 1 ? Icons.favorite : Icons.favorite_border,
+              color: system.isFavorite == 1 ? Colors.red : null,
             ),
           ],
         ),
@@ -160,13 +160,13 @@ class SystemCard extends StatelessWidget {
                       'Loja: ${system.storeName}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    if (system.price != null)
+                    if (system.price != null && (system.price ?? 0) > 0)
                       Text(
                         'Preço: R\$ ${system.price!.toStringAsFixed(2)}',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     Text(
-                      'Favorito: ${system.isFavorite ? 'Sim' : 'Não'}',
+                      'Favorito: ${system.isFavorite == 1 ? 'Sim' : 'Não'}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],

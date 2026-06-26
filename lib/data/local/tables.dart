@@ -25,6 +25,5 @@ class Systems extends Table {
   TextColumn get storeName => text()();
   TextColumn get description => text()();
   RealColumn get price => real().nullable()();
-  BoolColumn get isFavorite =>
-      boolean().withDefault(const Constant(false))();
+  IntColumn get isFavorite => integer().withDefault(const Constant(0))();
 }

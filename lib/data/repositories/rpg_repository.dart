@@ -11,12 +11,12 @@ class RpgRepository {
           .watch();
 
   Stream<List<System>> watchFavorites() =>
-      (_db.select(_db.systems)..where((s) => s.isFavorite.equals(true)))
+      (_db.select(_db.systems)..where((s) => s.isFavorite.equals(1)))
           .watch();
 
-  Future<void> toggleFavorite(int id, bool current) =>
+  Future<void> toggleFavorite(int id, int current) =>
       (_db.update(_db.systems)..where((s) => s.id.equals(id)))
-          .write(SystemsCompanion(isFavorite: Value(!current)));
+          .write(SystemsCompanion(isFavorite: Value(current == 1 ? 0 : 1)));
 
   Stream<List<Category>> watchAllCategories() =>
       _db.select(_db.categories).watch();
