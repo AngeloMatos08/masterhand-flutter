@@ -9,25 +9,16 @@ class Categories extends Table {
 }
 
 class Systems extends Table {
-  IntColumn get id => integer()();
-  TextColumn get name => text().withLength(min: 1, max: 100)();
-  TextColumn get description => text()();
-  TextColumn get coverUrl => text().nullable()(); // URL da capa
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get title => text().withLength(min: 1, max: 100)();
+  BlobColumn get cover => blob().nullable()();
+  TextColumn get categories => text()();
+  TextColumn get categoryShow1 => text()();
+  TextColumn get categoryShow2 => text()();
   TextColumn get storeLink => text()();
   TextColumn get storeName => text()();
+  TextColumn get description => text()();
   RealColumn get price => real().nullable()();
   BoolColumn get isFavorite =>
       boolean().withDefault(const Constant(false))();
-
-  @override
-  Set<Column> get primaryKey => {id};
-}
-
-// Tabela de junção para relacionamento many-to-many entre Systems e Categories
-class SystemCategories extends Table {
-  IntColumn get systemId => integer().references(Systems, #id)();
-  TextColumn get categoryId => text().references(Categories, #id)();
-
-  @override
-  Set<Column> get primaryKey => {systemId, categoryId};
 }

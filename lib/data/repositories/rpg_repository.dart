@@ -6,7 +6,9 @@ class RpgRepository {
 
   const RpgRepository(this._db);
 
-  Stream<List<System>> watchAllSystems() => _db.select(_db.systems).watch();
+  Stream<List<System>> watchAllSystems() =>
+      (_db.select(_db.systems)..orderBy([(s) => OrderingTerm.asc(s.title)]))
+          .watch();
 
   Stream<List<System>> watchFavorites() =>
       (_db.select(_db.systems)..where((s) => s.isFavorite.equals(true)))
